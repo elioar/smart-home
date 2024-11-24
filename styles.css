@@ -1186,7 +1186,7 @@ main {
 @media screen and (max-width: 480px) {
     .hero {
         padding: 20px;
-        height: 88vh;
+        height: 70vh;
     }
 
     .hero-text h1 {
