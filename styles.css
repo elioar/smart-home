@@ -722,6 +722,11 @@ main {
 
     .feature-containers {
         grid-template-columns: 1fr;
+        margin-bottom: 2rem;
+    }
+
+    .feature-container:last-child {
+        margin-bottom: 2rem;
     }
 
     .feature-container:first-child {
@@ -869,6 +874,10 @@ main {
 
     .room-tab {
         padding: 8px 16px;
+    }
+
+    .feature-container:last-child {
+        margin-bottom: 3rem;
     }
 }
 
