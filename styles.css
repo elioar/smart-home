@@ -1,0 +1,1216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f5f5f5;
+    height: 100vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #E9E9E9;
+    border-radius: 1.5rem;
+    height: 10vh;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.logo span {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #007AFF;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.settings-btn {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.settings-btn i {
+    font-size: 16px;
+    color: #1C1C1E;
+}
+
+.settings-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 8px;
+    gap: 12px;
+    width: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button span {
+    color: #999;
+    font-size: 16px;
+    text-align: left;
+}
+
+.search-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    width: 40px;
+    height: 40px;
+    background: #1C1C1E;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.search-icon-wrapper i {
+    color: white;
+    font-size: 14px;
+}
+
+/* Hover effect */
+.search-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url('img/mdr.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    margin-left: 0;
+    align-self: flex-start;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 56px;
+    color: white;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.hero-text h1 .bold-text {
+    font-weight: 600;
+    display: block;
+    margin-top: 8px;
+}
+
+.hero-text h2 {
+    font-size: 36px;
+    color: white;
+    font-weight: 300;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+    justify-content: flex-start;
+}
+
+.get-more {
+    padding: 16px 32px;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.view-video {
+    padding: 16px 32px;
+    background: #1C1C1E;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-tabs {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.settings-btn-circle {
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.settings-btn-circle i {
+    font-size: 16px;
+    color: #1C1C1E;
+}
+
+.settings-btn-circle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.room-tab {
+    padding: 12px 32px;
+    background: #1C1C1E;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.room-tab:nth-child(2) {
+    background: white;
+    color: black;
+}
+
+.room-tab:nth-child(2):hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.camera-info {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    background: rgba(28, 28, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.camera-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.camera-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.camera-text span {
+    font-size: 14px;
+}
+
+.camera-text .time {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.next-btn {
+    width: 32px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+}
+
+/* Hover effects */
+.get-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.view-video:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.room-tab:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.room-tab:first-child:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 32px;
+        height: 70vh;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text h2 {
+        font-size: 32px;
+    }
+
+    .room-tabs {
+        top: 16px;
+        right: 16px;
+    }
+
+    .camera-info {
+        bottom: 16px;
+        right: 16px;
+    }
+}
+
+.feature-containers {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 0.5rem;
+    height: 30vh;
+    margin: 0;
+    padding: 0;
+}
+
+.feature-container {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 100%;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.feature-container:first-child {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #D9D9D9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature-container:first-child .feature-image {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+.feature-content {
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.feature-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.feature-content h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+}
+
+.feature-content h2 span {
+    font-weight: 600;
+}
+
+.feature-container:nth-child(2) {
+    background-color: #2C3E50;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+}
+
+.feature-container:nth-child(2) .stat-content {
+    padding: 1.0rem;
+    position: relative;
+    z-index: 2;
+    padding-right: 45%;
+}
+
+.feature-container:nth-child(2) .percentage {
+    font-size: 3.0rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+    line-height: 1;
+}
+
+.feature-container:nth-child(2) .description {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+.feature-container:nth-child(2) .icons {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+.feature-container:nth-child(2) .icon {
+    width: 3rem;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-container:nth-child(2) .icon img {
+    width: 1rem;
+    height: 1rem;
+    filter: brightness(0) invert(1);
+}
+
+.feature-container:nth-child(2) .feature-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    height: 65%;
+    object-fit: cover;
+    padding: 0.5rem;
+    border-radius: 12%;
+}
+
+.feature-container:nth-child(3) {
+    background-color: #34495E;
+    overflow: hidden;
+    position: relative;
+}
+
+.feature-container:nth-child(3) .feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    opacity: 0.9;
+}
+
+.feature-container:hover {
+    transform: translateY(-5px);
+}
+
+.feature-container:hover .feature-image {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.features {
+    display: none;
+}
+
+.swipe-unlock {
+    margin-top: 0;
+    background: #272B34;
+    border-radius: 50px;
+    padding: 6px;
+    width: 160px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.lock-circle, .unlock-circle {
+    width: 28px;
+    height: 28px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lock-icon, .unlock-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+}
+
+.arrow {
+    color: #999;
+    font-size: 16px;
+    animation: arrowAnimation 1.5s infinite;
+    opacity: 0.3;
+}
+
+.arrow:nth-child(2) { animation-delay: 0.2s; }
+.arrow:nth-child(3) { animation-delay: 0.4s; }
+.arrow:nth-child(4) { animation-delay: 0.6s; }
+
+.dots {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+/* Προσθήκη Media Queries για responsive design */
+@media screen and (max-width: 1024px) {
+    .feature-containers {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        gap: 1rem;
+    }
+
+    .feature-container {
+        min-height: 250px;
+    }
+
+    .feature-container:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .feature-container:first-child {
+        padding: 1.5rem;
+    }
+
+    .feature-container:first-child .feature-image {
+        width: 150px;
+        left: 1.5rem;
+    }
+
+    .feature-content {
+        left: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        height: auto;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-left {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-image {
+        height: 40vh;
+    }
+
+    .feature-containers {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-container:first-child {
+        padding: 1.5rem;
+        min-height: 200px;
+    }
+
+    .feature-container:first-child .feature-image {
+        width: 120px;
+        left: 1rem;
+    }
+
+    .feature-content {
+        left: 65%;
+    }
+
+    .feature-content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .swipe-unlock {
+        width: 140px;
+        height: 35px;
+    }
+
+    .feature-container:nth-child(2) .percentage {
+        font-size: 3.4rem;
+    }
+
+    .feature-container:nth-child(2) .description {
+        font-size: 1rem;
+    }
+
+    .feature-container:nth-child(2) .icons {
+        top: 1.5rem;
+        right: 1.5rem;
+    }
+
+    /* Προσαρμογή των room tabs */
+    .room-tabs {
+        top: 24px;
+        right: 24px;
+        flex-direction: row;
+        gap: 8px;
+        max-width: calc(100% - 48px);
+        overflow-x: auto;
+        padding: 4px;
+    }
+
+    .room-tab {
+        padding: 10px 20px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    .logo span {
+        font-size: 1rem;
+    }
+
+    .feature-container:first-child {
+        padding: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 300px;
+    }
+
+    .feature-container:first-child .feature-image {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100px;
+        margin-bottom: 1rem;
+    }
+
+    .feature-content {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+        align-items: center;
+    }
+
+    .feature-content h2 {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-content p {
+        font-size: 0.8rem;
+    }
+
+    .swipe-unlock {
+        width: 120px;
+        height: 32px;
+    }
+
+    .lock-circle, .unlock-circle {
+        width: 24px;
+        height: 24px;
+    }
+
+    .lock-icon, .unlock-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .hero-image {
+        height: 30vh;
+    }
+
+    .feature-container:nth-child(2) .percentage {
+        font-size: 2.8rem;
+    }
+
+    .feature-container:nth-child(2) .description {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .feature-container:nth-child(2) .icons {
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .feature-container:nth-child(2) .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .room-tabs {
+        top: 20px;
+        right: 20px;
+        gap: 6px;
+    }
+
+    .room-tab {
+        padding: 8px 16px;
+    }
+}
+
+/* Προσθήκη για καλύτερη πασιμότητα ε συσκευές αφής */
+@media (hover: none) {
+    .feature-container:hover {
+        transform: none;
+    }
+
+    .feature-container:hover .feature-image {
+        transform: none;
+    }
+}
+
+.settings-btn i, 
+.search-btn i {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.feature-container:nth-child(2) .icon i {
+    font-size: 1rem;
+    color: white;
+}
+
+.lock-icon, 
+.unlock-icon {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Αφαίρεση των παλιών στυλ για τις εικόνες των εικονιδίων */
+.lock-icon, .unlock-icon {
+    opacity: 0.7;
+}
+
+.feature-container:nth-child(2) .icon img {
+    filter: none;
+}
+
+/* Στυλ για τα κουμπιά hotspot */
+.hotspot-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Επιτρέπει το click στην εικόνα */
+}
+
+.hotspot-btn {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto; /* Επαναφέρει το click στο κουμπί */
+    transition: transform 0.2s ease;
+}
+
+.hotspot-btn:hover {
+    transform: scale(1.1);
+}
+
+.hotspot-btn i {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Τοποθέτηση των hotspot κουμπιών */
+.hotspot-btn:nth-child(1) {
+    top: 20%;
+    left: 25%;
+}
+
+.hotspot-btn:nth-child(2) {
+    top: 40%;
+    left: 50%;
+}
+
+.hotspot-btn:nth-child(3) {
+    top: 20%;
+    right: 25%;
+}
+
+/* Ενημέρωση του στυλ για το κουμπί View */
+.view-button-container {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    transform: none;
+    z-index: 2;
+}
+
+.view-btn {
+    background: white;
+    border: none;
+    border-radius: 30px;
+    padding: 35px 70px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 200px;
+}
+
+.view-btn:hover {
+    background: #f8f8f8;
+    transform: translateY(-2px);
+}
+
+.view-btn i {
+    font-size: 14px;
+    transition: transform 0.2s ease;
+    margin-left: auto;
+}
+
+.view-btn:hover i {
+    transform: translateX(3px);
+}
+
+/* Προσαρμογή γα mobile */
+@media screen and (max-width: 768px) {
+    .hotspot-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .hotspot-btn i {
+        font-size: 12px;
+    }
+
+    .view-btn {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
+
+    .view-button-container {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+.hero-text h1:last-child {
+    font-size: 48px;
+    color: white;
+    font-weight: 300;
+}
+
+.pre-title {
+    display: block;
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+}
+
+/* Desktop styles */
+.burger-menu,
+.full-menu,
+.menu-content,
+.nav-content {
+    display: none; /* Κρύβουμε όλα τα mobile-related στοιχεία στο desktop */
+}
+
+/* Mobile styles - εμφανίζονται μόνο κάτω από 1024px */
+@media screen and (max-width: 1024px) {
+    .navbar {
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row; /* Αλλαγή σε row */
+    }
+
+    .nav-left {
+        flex-direction: row; /* Διατήρηση του logo layout */
+    }
+
+    /* Κρύβουμε τα desktop στοιχεία */
+    .nav-links,
+    .nav-right {
+        display: none;
+    }
+
+    /* Εμφανίζουμε το burger menu */
+    .burger-menu {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+        flex-shrink: 0;
+        margin-left: auto; /* Προσθήκη για να πάει δεξιά */
+    }
+
+    .burger-menu i {
+        font-size: 16px;
+        color: #1C1C1E;
+        transition: transform 0.3s ease;
+    }
+
+    .burger-menu.active {
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Full menu styles */
+    .full-menu {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #1C1C1E;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .full-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .menu-links {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 40px;
+        width: 100%;
+    }
+
+    .menu-links a {
+        color: white;
+        font-size: 32px;
+        text-decoration: none;
+        display: block;
+        padding: 20px;
+        transition: color 0.3s ease;
+    }
+
+    .menu-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .menu-footer .settings-btn,
+    .menu-footer .search-button {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+}
+
+/* Mobile styles για το hero section */
+@media screen and (max-width: 768px) {
+    .hero {
+        padding: 24px;
+        height: 85vh;
+    }
+
+    .pre-title {
+        font-size: 11px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+        line-height: 1.2;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .get-more,
+    .view-video {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+    }
+
+    /* Προσαρμογή των room tabs */
+    .room-tabs {
+        top: 24px;
+        right: 24px;
+        flex-direction: row;
+        gap: 8px;
+        max-width: calc(100% - 48px);
+        overflow-x: auto;
+        padding: 4px;
+    }
+
+    .settings-btn-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .room-tab {
+        padding: 10px 20px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    /* Προσαρμογή του camera info */
+    .camera-info {
+        bottom: 24px;
+        right: 24px;
+        left: 24px;
+        padding: 12px 16px;
+    }
+
+    .camera-content {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .camera-text span {
+        font-size: 12px;
+    }
+
+    .camera-text .time {
+        font-size: 11px;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding: 20px;
+        height: 88vh;
+    }
+
+    .hero-text h1 {
+        font-size: 32px;
+    }
+
+    .pre-title {
+        font-size: 10px;
+    }
+
+    .room-tabs {
+        top: 20px;
+        right: 20px;
+        gap: 6px;
+    }
+
+    .room-tab {
+        padding: 8px 16px;
+    }
+
+    .camera-info {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+}
+ 
