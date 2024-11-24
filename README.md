@@ -70,4 +70,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any questions or inquiries, please contact us at [email@example.com](mailto:email@example.com).
+For any questions or inquiries, please contact us at [elio.developer02@gmail.com](mailto:elio.developer02@gmail.com).
