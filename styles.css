@@ -15,6 +15,9 @@ body {
 }
 
 .navbar {
+    height: 8vh; 
+    min-height: 60px; 
+    margin-top: -1.0rem; 
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -22,7 +25,6 @@ body {
     padding: 1rem 2rem;
     background-color: #E9E9E9;
     border-radius: 1.5rem;
-    height: 10vh;
     transform: translateY(0);
     animation: fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -319,7 +321,7 @@ main {
 
 .room-tab {
     padding: 12px 32px;
-    background: rgba(28, 28, 30, 0.8);
+    background: var(--primary-color);
     border: none;
     border-radius: 50px;
     color: white;
@@ -333,24 +335,27 @@ main {
     min-width: 120px;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    opacity: 0.8;
 }
 
-.room-tab:hover {
+.room-tab:not(.active):hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.2);
+    opacity: 1;
 }
 
-.room-tab.active {
-    background: white;
-    color: #1C1C1E;
-    font-weight: 500;
-}
-
+.room-tab.active,
 .room-tab.active:hover {
     background: white;
+    color: var(--primary-color);
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+.room-tab:first-child:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .camera-info {
@@ -1617,4 +1622,95 @@ html {
         transform: translateY(0);
     }
 }
- 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.v-loading {
+    overflow: hidden;
+}
+
+.v-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    z-index: 999;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.v-preloader_hidden {
+    display: none;
+}
+
+.v-preloader__block {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.v-preloader_animate .v-preloader__block {
+    opacity: 1;
+}
+
+.v-preloader__percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 15rem;
+    color: #c8c8c8;
+    margin-top: 1.5rem;
+    opacity: 0.25;
+}
+
+.v-preloader__title {
+    position: absolute;
+    width: 100%;
+    bottom: calc(50% + 16px);
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+.v-preloader__loading {
+    position: absolute;
+    width: 100%;
+    top: calc(50% + 16px);
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.v-preloader__bar {
+    position: absolute;
+    top: calc(50% - 1px);
+    width: 100%;
+    height: 2px;
+    background: #c8c8c8;
+    overflow: hidden;
+}
+
+.v-preloader__progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #1e191c;
+    transition: width 0.3s ease-out;
+}
+
+.v-preloader.hide .v-preloader__block {
+    opacity: 0;
+}
+
+

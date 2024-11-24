@@ -1,4 +1,110 @@
+// Preloading Code
+class Preloader {
+    constructor() {
+        this.outer = document.querySelector('.v-preloader');
+        this.percent = document.querySelector('.v-preloader__percent');
+        this.progress = document.querySelector('.v-preloader__progress');
+        
+        this.loaded = false;
+        this.resourcesTotal = 100;
+        this.resourcesLoaded = 0;
+    }
+
+    init() {
+        // Αρχικά κρύβουμε όλα τα animated στοιχεία
+        document.querySelectorAll('.animate-fade-up, .animate-scale, .animate-slide-right')
+            .forEach(el => el.style.opacity = '0');
+        
+        this.start();
+        return this;
+    }
+
+    start() {
+        this.outer.classList.add('v-preloader_animate');
+        this.simulateLoading();
+        return true;
+    }
+
+    simulateLoading() {
+        let currentProgress = 0;
+        
+        const incrementProgress = () => {
+            if (currentProgress < 100) {
+                currentProgress++;
+                this.resourcesLoaded = currentProgress;
+                this.updateProgress();
+                setTimeout(incrementProgress, 30);
+            }
+        };
+        
+        incrementProgress();
+    }
+
+    updateProgress() {
+        if (this.percent) {
+            const progress = Math.round((this.resourcesLoaded / this.resourcesTotal) * 100);
+            this.percent.textContent = progress.toString().padStart(2, '0');
+            
+            if (progress >= 100) {
+                setTimeout(() => {
+                    this.loaded = true;
+                    this.hide();
+                }, 300);
+            }
+        }
+        
+        if (this.progress) {
+            const width = (this.resourcesLoaded / this.resourcesTotal) * 100;
+            this.progress.style.width = `${width}%`;
+        }
+    }
+
+    hide() {
+        this.outer.classList.add('hide');
+        setTimeout(() => {
+            this.outer.classList.add('v-preloader_hidden');
+            document.body.classList.remove('v-loading');
+            
+            // Ξεκινάμε τα animations μετά το κλείσιμο του preloader
+            this.startPageAnimations();
+        }, 750);
+    }
+
+    startPageAnimations() {
+        // Navbar animation
+        const navbar = document.querySelector('.navbar');
+        navbar.style.animation = 'fadeInDown 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+
+        // Hero content animations με διαδοχικά delays
+        const heroElements = [
+            { selector: '.pre-title', delay: 0.2, animation: 'fadeInUp' },
+            { selector: '.hero-text h1', delay: 0.4, animation: 'fadeInUp' },
+            { selector: '.hero-buttons', delay: 0.6, animation: 'fadeInUp' },
+            { selector: '.room-tabs', delay: 0.8, animation: 'slideInRight' },
+            { selector: '.camera-info', delay: 1, animation: 'slideInRight' }
+        ];
+
+        heroElements.forEach(({ selector, delay, animation }) => {
+            const element = document.querySelector(selector);
+            if (element) {
+                element.style.opacity = '0';
+                element.style.animation = `${animation} 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
+                element.style.animationDelay = `${delay}s`;
+            }
+        });
+
+        // Feature containers animation
+        const containers = document.querySelectorAll('.feature-container');
+        containers.forEach((container, index) => {
+            container.style.opacity = '0';
+            container.style.animation = 'fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+            container.style.animationDelay = `${1.2 + (index * 0.2)}s`;
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    new Preloader().init();
     const burgerMenu = document.querySelector('.burger-menu');
     const fullMenu = document.querySelector('.full-menu');
     const body = document.body;
@@ -130,12 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update navbar
         document.querySelector('.navbar').style.backgroundColor = theme.nav;
 
-        // Update room tabs
-        const roomTabs = document.querySelectorAll('.room-tab:not(.active)');
-        roomTabs.forEach(tab => {
-            tab.style.background = `${theme.primary}CC`;
-        });
-
         // Update camera info
         const cameraInfo = document.querySelector('.camera-info');
         cameraInfo.style.background = `${theme.primary}CC`;
@@ -197,3 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize with first theme
     updateThemeColors(colorThemes[0]);
 }); 
+
+
+
