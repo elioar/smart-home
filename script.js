@@ -105,4 +105,95 @@ document.addEventListener('DOMContentLoaded', () => {
     roomTabsContainer.addEventListener('mouseleave', () => {
         autoChangeTimer = setInterval(autoChange, autoChangeInterval);
     });
+
+    // Color theme functionality
+    const settingsBtn = document.querySelector('.settings-btn-circle');
+    const colorThemes = [
+        { primary: '#1C1C1E', accent: '#007AFF', bg: '#f5f5f5', nav: '#E9E9E9' },  // Default
+        { primary: '#D35400', accent: '#E67E22', bg: '#FFF3E0', nav: '#FFE0B2' },  // Orange
+        { primary: '#8E44AD', accent: '#9B59B6', bg: '#F3E5F5', nav: '#D1C4E9' },  // Purple
+        { primary: '#16A085', accent: '#2ECC71', bg: '#E0F2F1', nav: '#B2DFDB' }   // Teal/Green
+    ];
+    
+    let currentThemeIndex = 0;
+
+    const updateThemeColors = (theme) => {
+        // Update CSS variables
+        document.documentElement.style.setProperty('--primary-color', theme.primary);
+        document.documentElement.style.setProperty('--accent-color', theme.accent);
+        document.documentElement.style.setProperty('--bg-color', theme.bg);
+        document.documentElement.style.setProperty('--nav-color', theme.nav);
+
+        // Update body background
+        document.body.style.backgroundColor = theme.bg;
+
+        // Update navbar
+        document.querySelector('.navbar').style.backgroundColor = theme.nav;
+
+        // Update room tabs
+        const roomTabs = document.querySelectorAll('.room-tab:not(.active)');
+        roomTabs.forEach(tab => {
+            tab.style.background = `${theme.primary}CC`;
+        });
+
+        // Update camera info
+        const cameraInfo = document.querySelector('.camera-info');
+        cameraInfo.style.background = `${theme.primary}CC`;
+
+        // Update view video button
+        const viewVideo = document.querySelector('.view-video');
+        viewVideo.style.background = theme.primary;
+
+        // Update feature containers
+        const featureContainers = document.querySelectorAll('.feature-container');
+        featureContainers.forEach(container => {
+            if (container.classList.contains('large')) {
+                container.style.backgroundColor = theme.nav;
+            } else {
+                container.style.backgroundColor = theme.primary;
+            }
+        });
+
+        // Add rotation animation to settings button
+        settingsBtn.style.transform = 'rotate(180deg)';
+        setTimeout(() => {
+            settingsBtn.style.transform = 'rotate(0deg)';
+        }, 300);
+    };
+
+    settingsBtn.addEventListener('click', () => {
+        currentThemeIndex = (currentThemeIndex + 1) % colorThemes.length;
+        updateThemeColors(colorThemes[currentThemeIndex]);
+    });
+
+    // Add CSS variables
+    const style = document.createElement('style');
+    style.textContent = `
+        :root {
+            --primary-color: #1C1C1E;
+            --accent-color: #007AFF;
+            --bg-color: #f5f5f5;
+            --nav-color: #E9E9E9;
+        }
+
+        .navbar,
+        .feature-container,
+        .room-tab,
+        .camera-info,
+        .view-video {
+            transition: all 0.3s ease;
+        }
+
+        body {
+            transition: background-color 0.3s ease;
+        }
+
+        .settings-btn-circle {
+            transition: transform 0.3s ease;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Initialize with first theme
+    updateThemeColors(colorThemes[0]);
 }); 
